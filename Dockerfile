@@ -13,6 +13,3 @@ RUN apt-get update && apt-get install -y google-chrome-stable
 RUN apt-get install -y xvfb
 
 WORKDIR /opt/app
-
-ADD package.json yarn.lock /opt/app/
-RUN yarn
