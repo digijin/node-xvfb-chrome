@@ -1,0 +1,12 @@
+sudo: required
+services:
+- docker
+jobs:
+  include:
+    - stage: build docker image
+      script:
+      - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      - docker build -t node-xvfb-chrome .
+      - docker images
+      - docker tag node-xvfb-chrome $DOCKER_USERNAME/node-xvfb-chrome
+      - docker push $DOCKER_USERNAME/node-xvfb-chrome
